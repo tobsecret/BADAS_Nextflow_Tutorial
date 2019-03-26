@@ -25,7 +25,7 @@ transcriptome_file = file(params.transcriptome)
  * given the transcriptome file
  */
 process index {
-    
+    conda "bioconda::salmon"
     input:
     file transcriptome from transcriptome_file
      

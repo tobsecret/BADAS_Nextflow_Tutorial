@@ -4,46 +4,19 @@ This repository contains the tutorial material for the [Nextflow workshop](https
 
 ## Prerequisite
 
+We have already pre-installed these and distributed a copy of this repository to each user.
+
 * Java 8 or later 
-* Docker engine 1.10.x (or higher) 
-* Singularity 2.3.x (optional)
+* Nextflow
+* Conda
 
-## Setup the AWS account 
+## Log into tutorial cluster 
 
-1. SSH in the login node: 
+1. Get a strip with a username and a password
 
-     `ssh login@34.252.30.18`
-    
-2. Launch your AWS instance  
+2. Log into the cluster using ssh, for example if you're user1: 
 
-   `curl -L https://goo.gl/1C3abb | bash`
-
-   (if you need more storage or to use a different instance type specify in on the command like eg. `curl .. | bash -s t2.large 200`)
-   
-3. Open a new shell terminal and SSH to the new instance  
-
-   `ssh <instance name printed by the previous command>`
-   
-## Installation 
-
-Install Nextflow by using the following command: 
-
-```
-curl -fsSL get.nextflow.io | bash
-```
-    
-The above snippet creates the `nextflow` launcher in the current directory. 
-Complete the installation moving it into a directory on your `PATH` eg: 
-
-```
-mv nextflow $HOME/bin
-``` 
-   
-Finally, clone this repository with the following command: 
-
-```
-git clone https://github.com/nextflow-io/hack17-tutorial.git && cd hack17-tutorial
-```
+    `ssh user1@128.1222.217.207`
 
 ## Nextflow hands-on 
 
@@ -114,29 +87,7 @@ Try to run it by using the command:
 nextflow run script2.nf
 ```
 
-The execution will fail because Salmon is not installed in your environment. 
-
-Add the command line option `-with-docker` to launch the execution through a Docker container
-as shown below: 
-
-```
-nextflow run script2.nf -with-docker
-```
-
-This time it works because it uses the Docker container `nextflow/rnaseq-nf` defined in the 
-`nextflow.config` file. 
-
-In order to avoid to add the option `-with-docker` add the following line in the `nextflow.config` file: 
-
-```
-docker.enabled = true
-```
-
 #### Exercise 2.1 
-
-Enable the Docker execution by default adding the above setting in the `nextflow.config` file.
-
-#### Exercise 2.2 
 
 Print the output of the `index_ch` channel by using the [println](https://www.nextflow.io/docs/latest/operator.html#println)
 operator (do not confuse it with the `println` statement seen previously).

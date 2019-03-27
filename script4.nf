@@ -25,6 +25,7 @@ transcriptome_file = file(params.transcriptome)
  * given the transcriptome file
  */
 process index {
+    conda "bioconda::salmon"
     
     input:
     file transcriptome from transcriptome_file
@@ -45,7 +46,7 @@ Channel
     .set { read_pairs_ch } 
 
 process quantification {
-     
+    conda "bioconda::salmon"     
     input:
     file index from index_ch
     set pair_id, file(reads) from read_pairs_ch

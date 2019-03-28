@@ -16,7 +16,7 @@ We have already pre-installed these and distributed a copy of this repository to
 
 2. Log into the cluster using ssh, for example if you're user1:
 
-    `ssh user1@128.1222.217.207`
+    `ssh user1@128.122.217.207`
 
 ## Nextflow hands-on
 
